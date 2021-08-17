@@ -19,22 +19,18 @@ Global.directive('sliderItem', [function() {
 ]); 
 Global.controller('HomeHeader', ['$scope', 'Requestor', function($scope, Requestor) {
 	var getActiveData = function(){
-		Requestor.get_active_data().then(function(d){
-			if(d.d.results[0]){
-				var HomeOption = JSON.parse(d.d.results[0].data);
-				try{
-					angular.forEach(HomeOption.Data, function(opt){
-						if (opt.ActiveOption[opt.Selected].content){
-							opt.ActiveOption[opt.Selected].content = opt.ActiveOption[opt.Selected].content.split("\\").join("");
-						}
-					});
-				}catch(ex){
-					console.log(ex);
+		var data = "{\"Data\":[{\"Options\":[{\"Name\":\"None\"},{\"Name\":\"Video\"},{\"Name\":\"Image\"},{\"Name\":\"Form\"},{\"Name\":\"Slider\"}],\"ActiveOption\":{\"None\":{\"content\":\"\"},\"Slider\":{\"Images\":[{\"Description\":\"Baru!!! Layanan Cetak Documen\",\"ImageLink\":\"\\/wp-content\\/uploads\\/2015\\/07\\/slider1.jpg\",\"Order\":\"0\",\"RedirectLink\":\"\",\"Target\":\"Same Window\",\"Title\":\"Slider 1\",\"RedirectionLink\":\"\"},{\"Description\":\"Digital Printing No.1 di Lippo Cikarang \\u0026 Jababeka\",\"ImageLink\":\"\\/wp-content\\/uploads\\/2015\\/07\\/slider2.jpg\",\"Order\":\"0\",\"RedirectLink\":\"\",\"Target\":\"Same Window\",\"Title\":\"Mesin Cetak Berkualitas Tinggi\",\"RedirectionLink\":\"\"},{\"Description\":\"Kami Melayani dengan Hati \\u0026 Kreativitas\",\"ImageLink\":\"\\/wp-content\\/uploads\\/2015\\/07\\/slider3.jpg\",\"Order\":\"0\",\"RedirectLink\":\"\",\"Target\":\"Same Window\",\"Title\":\"Ruang Design\",\"RedirectionLink\":\"\"},{\"Description\":\"We Create High Quality Billboards\",\"ImageLink\":\"\\/wp-content\\/uploads\\/2015\\/07\\/billboards.jpg\",\"Order\":\"0\",\"RedirectLink\":\"\",\"Target\":\"Same Window\",\"Title\":\"Billboard\",\"RedirectionLink\":\"\"},{\"Description\":\"Banner JPO\",\"ImageLink\":\"\\/wp-content\\/uploads\\/2015\\/07\\/BannerJPO1.jpg\",\"Order\":\"0\",\"RedirectLink\":\"\",\"Target\":\"Same Window\",\"Title\":\"Banner JPO\",\"RedirectionLink\":\"\"}],\"Height\":\"\"},\"type\":\"Aweber\",\"Form\":{\"submitName\":\"\",\"content\":\"\",\"sampleDisplay\":\"\"},\"Image\":{\"content\":\"\"}},\"Width\":\"100\",\"Selected\":\"Slider\"},{\"Options\":[{\"Name\":\"None\"},{\"Name\":\"Video\"},{\"Name\":\"Image\"},{\"Name\":\"Form\"},{\"Name\":\"Slider\"}],\"ActiveOption\":{\"None\":{\"content\":\"\"},\"Slider\":{\"Images\":[{\"Description\":\"\",\"ImageLink\":\"\",\"Order\":\"0\",\"RedirectLink\":\"\",\"Target\":\"Same Window\",\"Title\":\"\",\"RedirectionLink\":\"\"}],\"Height\":\"\"},\"type\":\"Aweber\",\"Form\":{\"submitName\":\"\",\"content\":\"\",\"sampleDisplay\":\"\"},\"Image\":{\"content\":\"\"}},\"Width\":\"0\"}],\"Title\":\"test\",\"Id\":\"12\"}";
+		var HomeOption = JSON.parse(data);
+		try{
+			angular.forEach(HomeOption.Data, function(opt){
+				if (opt.ActiveOption[opt.Selected].content){
+					opt.ActiveOption[opt.Selected].content = opt.ActiveOption[opt.Selected].content.split("\\").join("");
 				}
-				$scope.HomeOption = HomeOption;
-			}
-			
-		});
+			});
+		}catch(ex){
+			console.log(ex);
+		}
+		$scope.HomeOption = HomeOption;
 	}
 	getActiveData();
 }]).controller("ThumbView", ["$scope", function($scope){
