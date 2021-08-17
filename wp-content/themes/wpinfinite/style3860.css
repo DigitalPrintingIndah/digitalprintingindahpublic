@@ -1,0 +1,16 @@
+/*
+Theme Name: WP Infinite
+Theme URI: https://siteinfinite.com/wpinfinite
+Author: The SiteInfinite Team
+Author URI: https://siteinfinite.com/
+Description: Clean, responsive personal branding theme
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: WPInfinite
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+@import url('bootstrap/css/bootstrap3860.css?v=1'); 
+@import url('bootstrap/css/bootstrap-theme3860.css?v=1'); 
